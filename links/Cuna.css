@@ -1,0 +1,35 @@
+.page-nav{
+    border: 1px;
+    width: 100%;
+    height: 110px;
+    background-color: rgba(243, 214, 177, 0.862) ;
+  background-size: 110px;
+  background-repeat:no-repeat;
+  text-align: center;
+  position:relative;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: medium;
+  background-image: url(logo2.jpeg);
+  
+}
+
+
+video{
+    width: 360px;
+    height: 240px;
+    position: relative;
+    top: 60px; left: 5px; right: 0px;
+    
+
+}
+
+
+
+  body{
+    background-color: burlywood;
+    background-repeat: repeat;
+    background-size: 10px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      margin: 10px;
+  }
+  
