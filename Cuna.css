@@ -13,6 +13,13 @@
   
 }
 
+.video-section {
+  margin-bottom: 20px;
+}
+.video-section h2, .video-section p {
+  margin: 0;
+  padding: 5px 0;
+}
 
 video{
     width: 360px;
