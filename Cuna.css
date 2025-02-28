@@ -22,7 +22,11 @@
 
 }
 
-
+video-row{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 
   body{
     background-color: burlywood;
