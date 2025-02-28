@@ -18,7 +18,7 @@
     height: 260px;
     position: relative;
     top: 0px; left: 5px; right: 0px;
-   
+   box-sizing: content-box;
 
 }
 
