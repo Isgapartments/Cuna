@@ -18,15 +18,11 @@
     height: 260px;
     position: relative;
     top: 0px; left: 5px; right: 0px;
-   box-sizing: content-box; flex-wrap: wrap;
+
 
 }
 
-video-row{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+
 
   body{
     background-color: burlywood;
