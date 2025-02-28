@@ -13,11 +13,13 @@
   
 }
 
-.video1{
+.video{
     width: 260px;
     height: 260px;
     position: relative;
     top: 0px; left: 5px; right: 0px;
+    justify-content:space-between;
+    display: flex;
     
 
 }
