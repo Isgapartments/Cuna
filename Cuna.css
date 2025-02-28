@@ -16,8 +16,7 @@
 .video{
     width: 260px;
     height: 260px;
-    position: row
-  
+    position: relative;
     top: 0px; left: 5px; right: 0px;
    
 
