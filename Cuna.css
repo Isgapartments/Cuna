@@ -15,7 +15,7 @@ background-image: url(logo2.jpeg);
 
 
 .tabs {
-  display: inline-block;     /* Solo ocupan el espacio necesario */
+  display: flexbox;     /* Solo ocupan el espacio necesario */
   max-width: 600px;          /* O el valor que prefieras */
   width: auto;               /* No ocupan todo el ancho */
   font-size: 24px;           /* Más pequeño */
