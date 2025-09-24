@@ -18,7 +18,7 @@ background-image: url(logo2.jpeg);
   display: inline-block;     /* Solo ocupan el espacio necesario */
   max-width: 600px;          /* O el valor que prefieras */
   width: auto;               /* No ocupan todo el ancho */
-  font-size: 14px;           /* Más pequeño */
+  font-size: 24px;           /* Más pequeño */
   padding: 8px 16px;          /* Más compacto */
   margin: 12px auto;         /* Centrado con espacio arriba y abajo */
   border-radius: 6px;        /* Opcional: bordes redondeados */
@@ -34,7 +34,7 @@ background-image: url(logo2.jpeg);
 .tabs {
   display: flex;
   flex-direction: row; /* Horizontal en escritorio */
-  gap: 1rem; /* Espacio entre tabs, opcional */
+  gap: 2rem; /* Espacio entre tabs, opcional */
 }
 
 /* Para dispositivos móviles y tablets */
