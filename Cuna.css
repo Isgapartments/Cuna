@@ -14,8 +14,8 @@ background-image: url(logo2.jpeg);
 }
 
 .gif-wrapper{
-  width: 360px;
-  height: 260px;
+  width: 460px;
+  height: 460px;
   margin: 0 auto;               /* centra el contenedor en la página */
   display: flex;                /* centra el <img> dentro del contenedor */
   align-items: center;
