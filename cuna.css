@@ -1,0 +1,158 @@
+/* AÑADIR / REEMPLAZAR al final de cuna.css
+   Ajustes para que:
+   - "lo rojo" (zona superior grande) la ocupe totalmente el GIF
+   - "lo verde" (banda inferior) la ocupen los tabs
+   Uso en HTML recomendado:
+   <section class="cuna-media-container">
+     <div class="gif-area">
+       <div class="gif-wrapper--huge">
+         <img src="presentacion.gif" alt="Presentación" class="gif-img--huge" />
+       </div>
+     </div>
+     <div class="tabs-area">
+       <nav class="tabs-inner">
+         <a class="link-btn" href="#">CUNA 1.0</a>
+         <a class="link-btn" href="#">CUNA 1.1</a>
+         ...
+       </nav>
+     </div>
+   </section>
+*/
+
+/* Layout principal: divide el bloque en 2 filas (GIF grande arriba, tabs abajo) */
+.cuna-media-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr auto; /* GIF ocupa todo el espacio disponible, tabs tamaño automático fijo */
+  gap: 18px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  align-items: stretch;
+  /* Ajusta la altura mínima para que la zona "roja" resulte alta en pantallas grandes */
+  min-height: 70vh;
+}
+
+/* Zona del GIF — ocupa totalmente la fila superior */
+.gif-area {
+  grid-row: 1 / 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* fondo opcional similar al mostrado en la captura */
+  background: rgba(0,0,0,0); /* transparente por defecto; cambia si quieres color */
+}
+
+/* El wrapper sigue centrando el GIF pero ahora toma la altura completa de la fila */
+.gif-wrapper--huge {
+  width: 100%;
+  height: 100%;               /* importante: llenar toda la celda superior */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 0;                 /* quitar padding para que el gif ocupe todo */
+  background: transparent;    /* deja transparente para que el gif llene el área */
+}
+
+/* Imagen GIF: cubrir el área sin deformar (usa cover si quieres que llene recortando) */
+.gif-img--huge {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* usar 'cover' para que el GIF ocupe toda el área (recortará si es necesario) */
+  display: block;
+}
+
+/* Alternativa si usas background en lugar de <img> */
+.gif-bg--huge {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;     /* fill area */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Zona de tabs: ocupa la fila inferior (lo "verde") */
+.tabs-area {
+  grid-row: 2 / 3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #33cc33;        /* color verde de área: ajusta según tu diseño */
+  padding: 14px 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+/* Contenedor interno de tabs para controlar espaciado y alineación */
+.tabs-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;    /* centra horizontalmente los botones */
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Reutilizamos .link-btn con adaptaciones si quieres que parezcan 'tabs' */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  background: #fff6c5;        /* color claro para los tabs (puedes cambiar) */
+  color: #111;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 15px;
+  border: 3px solid rgba(0,0,0,0.12);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+}
+
+/* Estado activo / seleccionado para un tab */
+.link-btn.active,
+.link-btn:focus,
+.link-btn:hover {
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  outline: none;
+}
+
+/* Responsive: en pantallas pequeñas ajusta proporciones para que no se desborden */
+@media (max-width: 1200px) {
+  .cuna-media-container { min-height: 60vh; }
+  .tabs-inner { max-width: 1000px; gap: 12px; }
+}
+
+@media (max-width: 900px) {
+  .cuna-media-container { min-height: 55vh; grid-template-rows: 1fr auto; gap: 12px; padding: 12px; }
+  .gif-img--huge { object-fit: contain; } /* en móviles ver todo el gif */
+  .tabs-area { padding: 10px; }
+  .link-btn { padding: 9px 12px; font-size: 14px; border-width: 2px; }
+}
+
+@media (max-width: 480px) {
+  .cuna-media-container { min-height: 50vh; grid-template-rows: 1fr auto; }
+  .tabs-inner { gap: 8px; }
+  .link-btn { width: 100%; max-width: 320px; }
+}
+
+/* Notas:
+   - Para que "lo rojo" lo ocupe entero el GIF: envuelve tu GIF con la estructura .cuna-media-container > .gif-area > .gif-wrapper--huge
+     y asegúrate de quitar paddings/márgenes en el HTML superior si hay encabezados que empujan el contenido.
+   - Para que "lo verde" lo ocupen los tabs: sitúa los enlaces dentro de .tabs-area > .tabs-inner. 
+     La propiedad background de .tabs-area pinta la banda verde completa; los botones (tabs) están centrados dentro de esa banda.
+   - Si ya tienes contenedores existentes, cambia los nombres de clase por los tuyos o aumenta la especificidad:
+     por ejemplo: #main .cuna-media-container { ... }
+*/
