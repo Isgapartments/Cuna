@@ -62,7 +62,7 @@
   font-weight: bold;
   border: 3px solid #ccc;
   transition: transform 0.18s ease, 
-  text-align: center;
+  text-align center;
   min-height: 52px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
