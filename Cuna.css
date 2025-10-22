@@ -61,7 +61,7 @@
   text-decoration: none;
   font-weight: bold;
   border: 3px solid #ccc;
-  transition: transform 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, 
   text-align: center;
   min-height: 52px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -153,7 +153,6 @@ body{
   border-radius: 50%;
   text-decoration: none;
   color: #fff;
-  transition: background 0.2s;
   margin-bottom: 15px;
 }
 .home-icon:hover {
@@ -163,3 +162,4 @@ body{
 .home-icon svg {
   vertical-align: middle;
   pointer-events: none;
+}
