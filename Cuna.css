@@ -1,18 +1,30 @@
 /* Asegurarse de que el header no recorte el contenido */
+
 .page-nav{
-  border: 1px;
+  border: 0;
   width: 100%;
-  height: auto;              /* permitir que crezca según el contenido */
-  padding: 12px 0;
-  background-color: rgba(243, 214, 177, 0.862);
+  height: auto;
+  padding: 20px 12px; /* espacio interno para el header */
+  background-color: rgba(243, 214, 177, 0.95);
   background-size: 110px;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   text-align: center;
-  position:relative;
+  position: relative;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: medium;
   background-image: url(logo2.jpeg);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08); /* ligera sombra para separar */
+  border-bottom: 4px solid rgba(0,0,0,0.06); /* delinea el final del header */
+  z-index: 10;
 }
+
+/* Opcional: centrar y limitar el ancho del contenido dentro del header */
+.page-header-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
 
 /* Contenedor del GIF como banner centrado.
    - Ocupa hasta el 80% del viewport, con un máximo fijo (por ejemplo 1100px)
