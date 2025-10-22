@@ -20,8 +20,8 @@
 
 /* Opcional: centrar y limitar el ancho del contenido dentro del header */
 .page-header-inner{
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin:  auto;
   padding: 0 12px;
 }
 
