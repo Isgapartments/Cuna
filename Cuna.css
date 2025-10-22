@@ -111,10 +111,7 @@
   list-style: none;
 }
 
-/* Ajustes menores existentes del archivo original */
-.tab-link {
-  /* ya definido arriba, duplicado deliberadamente para mantener compatibilidad */
-}
+
 
 .video-grid {
   display: grid;
