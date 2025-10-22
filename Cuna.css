@@ -3,177 +3,164 @@
   width: 100%;
   height: 110px;
   background-color: rgba(243, 214, 177, 0.862) ;
-background-size: 110px;
-background-repeat:no-repeat;
-text-align: center;
-position:relative;
-font-family: Georgia, 'Times New Roman', Times, serif;
-font-size: medium;
-background-image: url(logo2.jpeg);
-
+  background-size: 110px;
+  background-repeat:no-repeat;
+  text-align: center;
+  position:relative;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: medium;
+  background-image: url(logo2.jpeg);
 }
 
+/* GIF: ahora ocupa al menos 40% del ancho de la página y mantiene proporción 360x260 */
 .gif-wrapper{
-  width: 460px;
-  height: 460px;
-  margin: 0 auto;               /* centra el contenedor en la página */
-  display: flex;                /* centra el <img> dentro del contenedor */
+  width: 40vw;                 /* ocupa 40% del ancho del viewport */
+  max-width: 720px;            /* no crecerá demasiado en pantallas grandes */
+  min-width: 260px;            /* visible en pantallas muy pequeñas */
+  aspect-ratio: 360 / 260;     /* mantiene proporción 360x260 */
+  margin: 20px auto;           /* centra horizontalmente */
+  display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;             /* recorta si el gif excede el tamaño */
-  border-radius: 6px;           /* opcional */
-  background: #000;             /* opcional: fondo mientras carga */
+  overflow: hidden;
+  border-radius: 6px;
+  background: #000;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
 .gif-img{
-  width: 260%;
-  height: 260%;
-  object-fit: cover;            /* mantiene el recorte proporcional */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* recorta manteniendo proporción */
   display: block;
 }
 
+/* Si prefieres que no se recorte, usa object-fit: contain; */
+
+/* Pestañas/enlaces: centradas y organizadas 5 x 5 */
 .tabs {
-  display: flexbox;     /* Solo ocupan el espacio necesario */
-  max-width: 600px;          /* O el valor que prefieras */
-  width: auto;               /* No ocupan todo el ancho */
-  font-size: 24px;           /* Más pequeño */
-  padding: 8px 16px;          /* Más compacto */
-  margin: 12px auto;         /* Centrado con espacio arriba y abajo */
-  border-radius: 6px;        /* Opcional: bordes redondeados */
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr)); /* 5 columnas */
+  gap: 12px;
+  justify-content: center;    /* centra el grid dentro del contenedor */
+  align-items: center;
+  max-width: 1100px;
+  margin: 12px auto;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
-/* Centra el contenedor de tabs */
+.tab-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f8e4a4;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border: 3px solid #ccc;
+  transition: transform 0.18s ease, background 0.18s ease;
+  text-align: center;
+  min-height: 52px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Hover / active */
+.tab-link:hover,
+.tab-link.active {
+  background: #fff;
+  color: #000;
+  border-color: #f8e4a4;
+  transform: translateY(-3px);
+}
+
+/* Responsive: en pantallas más estrechas vamos a 5x2 -> quedará 2 columnas o 3 según ancho */
+@media (max-width: 1000px) {
+  .tabs {
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .tabs {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .gif-wrapper {
+    width: 90vw;             /* ocupar más en móviles para ser visible */
+    min-width: unset;
+  }
+}
+
+/* Contenedores y estilos existentes (no interferir) */
 .tabs-container {
   display: flex;
   justify-content: center;
 }
 
-.tabs {
-  display: flex;
-  flex-direction: row; /* Horizontal en escritorio */
-  gap: 2rem; /* Espacio entre tabs, opcional */
-}
-
-/* Para dispositivos móviles y tablets */
-@media (max-width: 768px) {
-  .tabs {
-    flex-direction: column; /* Vertical en pantallas pequeñas */
-  }
-}
-
 .links{
   display: flex;
-  justify-content: center;      /* centra los botones horizontalmente */
-  gap: 12px;                    /* separación entre botones */
-  margin-top: 16px;
-  flex-wrap: wrap;              /* permite que bajen en pantallas pequeñas */
-  padding: 0;                   /* reset si hay estilos previos */
-  list-style: none;             /* si usas <ul> remueve bullets */
-  }
-
-  /* Responsive: en pantallas muy pequeñas, permitir que el GIF reduzca su tamaño */
-@media (max-width: 400px){
-  .gif-wrapper,
-  .gif-bg {
-    width: 100%;
-    max-width: 360px;
-    height: auto;
-    aspect-ratio: 360 / 260; /* mantiene la proporción al cambiar a height:auto */
-  }
-
-  .gif-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* evita recortar en pantallas pequeñas */
-  }
-
-  .links {
-    gap: 8px;
-    margin-top: 10px;
-  }
-
-  .link-btn {
-    padding: 7px 10px;
-    font-size: 13px;
-  }
-}
-
-
-.tab-link {
-  flex: 1 1 0;
-  aspect-ratio: 1/1;
-  height: 100%;
-  font-size: 1vw;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  border-radius: 25px;
-  border: 4px solid #ccc;
-  background: #f8e4a4;   /* Beige */
-  color: #000;           /* Negro */
-  font-weight: bold;     /* Negrita */
-  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.1);
-  transition: transform 0.2s, background 0.3s, color 0.3s;
-  text-align: center;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
 }
 
-.tab-link:hover,
-.tab-link.active {
-  background: #fff;      /* Blanco al pasar el cursor */
-  color: #000;           /* Mantiene el texto negro */
-  border-color: #f8e4a4; /* Borde beige */
-  transform: scale(1.03);
+/* Ajustes menores existentes del archivo original */
+.tab-link {
+  /* ya definido arriba, duplicado deliberadamente para mantener compatibilidad */
 }
 
 .video-grid {
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted min-width to 260px */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
   margin-bottom: 20px;
 }
 .video-section {
-flex: 1;
-margin: 0 10px;
-text-align: center;
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
 }
 .video-section h2, .video-section p {
-margin: 0;
-padding: 5px 0;
+  margin: 0;
+  padding: 5px 0;
 }
 .video-section video {
-display: block;
-margin: 10px auto;
-width: 320px; /* Adjust the width as needed */
-height: 240px; /* Adjust the height as needed */
+  display: block;
+  margin: 10px auto;
+  width: 320px;
+  height: 240px;
 }
-
-
 
 body{
   background-color: burlywood;
   background-repeat: repeat;
   background-size: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 10px;
 }
 
 .home-icon {
-    display: inline-block;
-    padding: 8px;
-    background: #333;
-    border-radius: 50%;
-    text-decoration: none;
-    color: #fff;
-    transition: background 0.2s;
-    margin-bottom: 15px;
+  display: inline-block;
+  padding: 8px;
+  background: #333;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.2s;
+  margin-bottom: 15px;
 }
 .home-icon:hover {
-    background: #555;
-    color: #ffd700;
+  background: #555;
+  color: #ffd700;
 }
 .home-icon svg {
-    vertical-align: middle;
-    pointer-events: none; /* El SVG no captura el click, sólo el enlace */
+  vertical-align: middle;
+  pointer-events: none;
 }
