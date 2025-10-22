@@ -31,7 +31,7 @@
 /* La imagen ocupa todo el ancho del contenedor y mantiene su proporción */
 .gif-img {
   width: 100%;
-  height: auto;              /* importante: preservar la relación de aspecto */
+  height: 150%;              /* importante: preservar la relación de aspecto */
   display: block;
   object-fit: cover;         /* opcional: cover para recortar si hace falta */
 }
