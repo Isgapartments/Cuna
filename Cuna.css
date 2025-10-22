@@ -173,3 +173,44 @@ body{
   vertical-align: middle;
   pointer-events: none;
 }
+
+/* Wrapper centrado y tamaño máximo (similar a la captura) */
+.banner-wrapper {
+  width: min(80vw, 1100px);   /* 80% del viewport o máximo 1100px */
+  margin: 24px auto;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  background: #000; /* color mientras carga */
+}
+
+/* El video ocupa todo el ancho del wrapper y mantiene proporción */
+video.banner {
+  display: block;
+  width: 100%;
+  height: auto;              /* conserva la relación de aspecto del archivo */
+  object-fit: cover;         /* 'cover' llena y recorta; usar 'contain' si NO quieres recortes */
+  object-position: center;
+  max-height: 80vh;          /* evita que el banner sea más alto que la pantalla */
+}
+
+/* Fallback image dentro del video (se mostrará si no hay soporte de video) */
+video.banner .gif-img,
+.banner-wrapper > img.gif-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;         /* o 'contain' */
+}
+
+
+/* Responsive: en móviles ocupar más ancho */
+@media (max-width: 700px) {
+  .banner-wrapper {
+    width: 95vw;
+    margin: 16px auto;
+    border-radius: 4px;
+  }
+  /* Si usas height fijo, reduce la altura en móviles */
+  /* .banner-wrapper { height: 320px; } */
+}
